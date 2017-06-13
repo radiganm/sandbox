@@ -1,0 +1,12 @@
+[package]
+name = "rstest"
+version = "0.1.0"
+authors = ["Mac Radigan <na>"]
+
+[lib]
+name = "rstest"
+path = "src/lib.rs"
+crate-type = ["staticlib"]
+
+[dependencies]
+libc = "0.2"
