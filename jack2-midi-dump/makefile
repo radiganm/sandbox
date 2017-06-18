@@ -1,5 +1,5 @@
 #!/usr/bin/make -f
-## makefile (for midi_dump)
+## makefile (for jack2_midi_dump)
 
 target := jack2_midi_dump
 
