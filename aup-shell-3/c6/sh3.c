@@ -48,13 +48,13 @@ static void fd_check(void)
 static bool store_char(char *word, size_t maxword, int c, size_t *np)
 {
 	errno = E2BIG;
-	ec_false( *np < maxword )
+	//ec_false( *np < maxword )
 	word[(*np)++] = c;
 	return true;
 
-EC_CLEANUP_BGN
-	return false;
-EC_CLEANUP_END
+//EC_CLEANUP_BGN
+//	return false;
+//EC_CLEANUP_END
 }
 /*[gettoken]*/
 typedef enum {T_WORD, T_BAR, T_AMP, T_SEMI, T_GT, T_GTGT, T_LT,
@@ -91,7 +91,7 @@ static TOKEN gettoken(char *word, size_t maxword)
 				continue;
 			default:
 				state = INWORD;
-				ec_false( store_char(word, maxword, c, &wordn) )
+				//ec_false( store_char(word, maxword, c, &wordn) )
 				continue;
 			}
 		case GTGT:
@@ -104,13 +104,13 @@ static TOKEN gettoken(char *word, size_t maxword)
 			case '\\':
 				if ((c = getchar()) == EOF)
 					c = '\\';
-				ec_false( store_char(word, maxword, c, &wordn) );
+				//ec_false( store_char(word, maxword, c, &wordn) );
 				continue;
 			case '"':
-				ec_false( store_char(word, maxword, '\0', &wordn) )
+				//ec_false( store_char(word, maxword, '\0', &wordn) )
 				return T_WORD;
 			default:
-				ec_false( store_char(word, maxword, c, &wordn) )
+				//ec_false( store_char(word, maxword, c, &wordn) )
 				continue;
 			}
 		case INWORD:
@@ -124,20 +124,20 @@ static TOKEN gettoken(char *word, size_t maxword)
 			case ' ':
 			case '\t':
 				ungetc(c, stdin);
-				ec_false( store_char(word, maxword, '\0', &wordn) )
+				//ec_false( store_char(word, maxword, '\0', &wordn) )
 				return T_WORD;
 			default:
-				ec_false( store_char(word, maxword, c, &wordn) )
+				//ec_false( store_char(word, maxword, c, &wordn) )
 				continue;
 			}
 		}
 	}
-	ec_false( !ferror(stdin) )
+	//ec_false( !ferror(stdin) )
 	return T_EOF;
 
-EC_CLEANUP_BGN
-	return T_ERROR;
-EC_CLEANUP_END
+//EC_CLEANUP_BGN
+//	return T_ERROR;
+//EC_CLEANUP_END
 }
 /*[builtin]*/
 static bool builtin(int argc, char *argv[], int srcfd, int dstfd)
@@ -174,29 +174,29 @@ static bool ignore_sig(void)
 	act_ignore.sa_handler = SIG_IGN; /* may generate warning on Solaris */
 	if (first) {
 		first = false;
-		ec_neg1( sigaction(SIGINT, &act_ignore, &entry_int) )
-		ec_neg1( sigaction(SIGQUIT, &act_ignore, &entry_quit) )
+		//ec_neg1( sigaction(SIGINT, &act_ignore, &entry_int) )
+		//ec_neg1( sigaction(SIGQUIT, &act_ignore, &entry_quit) )
 	}
 	else {
-		ec_neg1( sigaction(SIGINT, &act_ignore, NULL) )
-		ec_neg1( sigaction(SIGQUIT, &act_ignore, NULL) )
+		//ec_neg1( sigaction(SIGINT, &act_ignore, NULL) )
+		//ec_neg1( sigaction(SIGQUIT, &act_ignore, NULL) )
 	}
 	return true;
 
-EC_CLEANUP_BGN
-	return false;
-EC_CLEANUP_END
+//EC_CLEANUP_BGN
+//	return false;
+//EC_CLEANUP_END
 }
 
 static bool entry_sig(void)
 {
-	ec_neg1( sigaction(SIGINT, &entry_int, NULL) )
-	ec_neg1( sigaction(SIGQUIT, &entry_quit, NULL) )
+	//ec_neg1( sigaction(SIGINT, &entry_int, NULL) )
+	//ec_neg1( sigaction(SIGQUIT, &entry_quit, NULL) )
 	return true;
 
-EC_CLEANUP_BGN
-	return false;
-EC_CLEANUP_END
+//EC_CLEANUP_BGN
+//	return false;
+//EC_CLEANUP_END
 }
 /*[wait_and_display]*/
 static bool wait_and_display(pid_t pid)
@@ -205,14 +205,14 @@ static bool wait_and_display(pid_t pid)
 	int status;
 
 	do {
-		ec_neg1( wpid = waitpid(-1, &status, 0) )
+		//ec_neg1( wpid = waitpid(-1, &status, 0) )
 		display_status(wpid, status);
 	} while (wpid != pid);
 	return true;
 
-EC_CLEANUP_BGN
-	return false;
-EC_CLEANUP_END
+//EC_CLEANUP_BGN
+//	return false;
+//EC_CLEANUP_END
 }
 /*[redirect]*/
 static void redirect(int srcfd, const char *srcfile, int dstfd,
@@ -224,28 +224,28 @@ static void redirect(int srcfd, const char *srcfile, int dstfd,
 		srcfile = "/dev/null";
 		srcfd = -1;
 	}
-	if (srcfile[0] != '\0')
-		ec_neg1( srcfd = open(srcfile, O_RDONLY, 0) )
-	ec_neg1( dup2(srcfd, STDIN_FILENO) )
-	if (srcfd != STDIN_FILENO)
-		ec_neg1( close(srcfd) )
+	//if (srcfile[0] != '\0')
+	//	ec_neg1( srcfd = open(srcfile, O_RDONLY, 0) )
+	//ec_neg1( dup2(srcfd, STDIN_FILENO) )
+	//if (srcfd != STDIN_FILENO)
+	//	ec_neg1( close(srcfd) )
 	if (dstfile[0] != '\0') {
 		flags = O_WRONLY | O_CREAT;
 		if (append)
 			flags |= O_APPEND;
 		else
 			flags |= O_TRUNC;
-		ec_neg1( dstfd = open(dstfile, flags, PERM_FILE) )
+	//	ec_neg1( dstfd = open(dstfile, flags, PERM_FILE) )
 	}
-	ec_neg1( dup2(dstfd, STDOUT_FILENO) )
-	if (dstfd != STDOUT_FILENO)
-		ec_neg1( close(dstfd) )
+	//ec_neg1( dup2(dstfd, STDOUT_FILENO) )
+	//if (dstfd != STDOUT_FILENO)
+	//	ec_neg1( close(dstfd) )
 	fd_check();
 	return;
 
-EC_CLEANUP_BGN
-	_exit(EXIT_FAILURE); /* we are in child */
-EC_CLEANUP_END
+//EC_CLEANUP_BGN
+//	_exit(EXIT_FAILURE); /* we are in child */
+//EC_CLEANUP_END
 }
 /*[invoke]*/
 static pid_t invoke(int argc, char *argv[], int srcfd, const char *srcfile,
@@ -261,10 +261,10 @@ static pid_t invoke(int argc, char *argv[], int srcfd, const char *srcfile,
 		fprintf(stderr, "Can't create new process\n");
 		return 0;
 	case 0:
-		if (closefd != -1)
-			ec_neg1( close(closefd) )
-		if (!bckgrnd)
-			ec_false( entry_sig() )
+		//if (closefd != -1)
+		//	ec_neg1( close(closefd) )
+		//if (!bckgrnd)
+		//	ec_false( entry_sig() )
 		redirect(srcfd, srcfile, dstfd, dstfile, append, bckgrnd);
 		cmdname = strchr(argv[0], '/');
 		if (cmdname == NULL)
@@ -278,19 +278,19 @@ static pid_t invoke(int argc, char *argv[], int srcfd, const char *srcfile,
 		_exit(EXIT_FAILURE);
 	}
 	/* parent */
-	if (srcfd > STDOUT_FILENO)
-		ec_neg1( close(srcfd) )
-	if (dstfd > STDOUT_FILENO)
-		ec_neg1( close(dstfd) )
+	//if (srcfd > STDOUT_FILENO)
+	//	ec_neg1( close(srcfd) )
+	//if (dstfd > STDOUT_FILENO)
+	//	ec_neg1( close(dstfd) )
 	if (bckgrnd)
 		printf("%ld\n", (long)pid);
 	return pid;
 
-EC_CLEANUP_BGN
-	if (pid == 0)
-		_exit(EXIT_FAILURE);
-	return -1;
-EC_CLEANUP_END
+//EC_CLEANUP_BGN
+//	if (pid == 0)
+//		_exit(EXIT_FAILURE);
+//	return -1;
+//EC_CLEANUP_END
 }
 /*[command]*/
 static TOKEN command(pid_t *wpid, bool makepipe, int *pipefdp)
@@ -359,12 +359,12 @@ static TOKEN command(pid_t *wpid, bool makepipe, int *pipefdp)
 			else
 				term = token;
 			if (makepipe) {
-				ec_neg1( pipe(pfd) )
+				//ec_neg1( pipe(pfd) )
 				*pipefdp = pfd[1];
 				srcfd = pfd[0];
 			}
-			ec_neg1( pid = invoke(argc, argv, srcfd, srcfile, dstfd,
-			  dstfile, append, term == T_AMP, pfd[1]) )
+			//ec_neg1( pid = invoke(argc, argv, srcfd, srcfile, dstfd,
+			//  dstfile, append, term == T_AMP, pfd[1]) )
 			if (token != T_BAR)
 				*wpid = pid;
 			if (argc == 0 && (token != T_NL || srcfd > 1))
@@ -379,9 +379,9 @@ static TOKEN command(pid_t *wpid, bool makepipe, int *pipefdp)
 		}
 	}
 
-EC_CLEANUP_BGN
-	return T_ERROR;
-EC_CLEANUP_END
+//EC_CLEANUP_BGN
+//	return T_ERROR;
+//EC_CLEANUP_END
 }
 /*[]*/
 #ifndef WANT_TEST
@@ -398,7 +398,7 @@ int main(void)
 		term = command(&pid, false, NULL);
 		if (term == T_ERROR) {
 			fprintf(stderr, "Bad command\n");
-			EC_FLUSH("main--bad command")
+			//EC_FLUSH("main--bad command")
 			term = T_NL;
 		}
 		if (term != T_AMP && pid > 0)

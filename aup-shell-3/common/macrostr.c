@@ -18,6 +18,15 @@
 	are to be used.
 
 */
+
+#include <errno.h>
+#include <poll.h>
+#include <sys/socket.h>
+#include <sys/types.h>
+#include <netdb.h>
+#include <sys/time.h>
+#include <sys/resource.h>
+
 #define __EXTENSIONS__
 #include "defs.h"
 

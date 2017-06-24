@@ -136,7 +136,7 @@
 #endif /* _POSIX_SOURCE */
 {"errno", (intptr_t)EC_EINTERNAL, "EC_EINTERNAL", ""},
 #ifndef DARWIN
-{"eai", (intptr_t)EAI_ADDRFAMILY, "EAI_ADDRFAMILY", ""},
+//{"eai", (intptr_t)EAI_ADDRFAMILY, "EAI_ADDRFAMILY", ""},
 {"eai", (intptr_t)EAI_AGAIN, "EAI_AGAIN", ""},
 {"eai", (intptr_t)EAI_BADFLAGS, "EAI_BADFLAGS", ""},
 {"eai", (intptr_t)EAI_FAIL, "EAI_FAIL", ""},

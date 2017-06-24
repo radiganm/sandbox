@@ -26,7 +26,7 @@ extern "C" {
 #endif
 
 #ifdef _POSIX_SOURCE /* tmp */
-#error
+//#error
 #endif
 
 /*

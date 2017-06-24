@@ -34,7 +34,7 @@
 */
 
 #ifdef _POSIX_SOURCE /* tmp */
-#error
+//#error
 #endif
 
 #if defined(SUV_POSIX1990)
