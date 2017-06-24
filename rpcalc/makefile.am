@@ -1,0 +1,41 @@
+## makefile.am
+## Mac Radigan
+
+AM_YFLAGS = -d
+PARSER = src/rpcalc.y
+
+bin_PROGRAMS = \
+  rpcalc_repl
+
+## libraries
+#lib_LTLIBRARIES = librpcalc.la
+#librpcalc_la_SOURCES = \
+#  src/rpcalc.y
+
+## rpcalc
+rpcalc_repl_SOURCES = \
+  src/rpcalc.y \
+  src/rpcalc_repl.c
+rpcalc_repl_LDADD = librpcalc.la \
+  -lm
+
+## flags
+AM_CPPFLAGS = \
+  -fpic \
+  -lrt \
+  -lm \
+  -D_FILE_OFFSET_BITS=64 \
+  -Wall \
+  -m64 \
+  -ansi \
+  -Wno-format \
+  -Wno-variadic-macros \
+  -g \
+  -fstack-protector \
+  -I/usr/local/include \
+  -I/usr/include \
+  -I../include
+
+rpcalc_repl_LDFLAGS = -no-install
+
+## *EOF*
