@@ -1,3 +1,6 @@
 [submodule "submodules/rust.ko"]
 	path = submodules/rust.ko
 	url = https://github.com/tsgates/rust.ko.git
+[submodule "submodules/rawsockets"]
+	path = submodules/rawsockets
+	url = https://github.com/vieites4/rawsockets.git
