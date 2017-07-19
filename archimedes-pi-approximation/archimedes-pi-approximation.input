@@ -1,7 +1,10 @@
 #!/usr/bin/open-axiom --no-hyperdoc --script
-++ archimedes-pi-approximation-quad-double.input
+++ archimedes-pi-approximation.input
 ++ Copyright 2016 Mac Radigan
 ++ All Rights Reserved
+
+++set output fortran archimedes.f90
+++set output tex     archimedes.tex
 
   e2k(e2)    == 2 - 2 * (1 - e2/4)**(1/2)
   sk(s)      == 2 * s
