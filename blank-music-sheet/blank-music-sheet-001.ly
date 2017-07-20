@@ -2,7 +2,7 @@
 
      \layout{ indent = #0 }
      emptymusic = {
-       \repeat unfold 2 % Change this for more lines.
+       \repeat unfold 8 % Change this for more lines.
        { s1\break }
        \bar "|."
      }
@@ -18,5 +18,9 @@
        \new Staff \emptymusic
        \new TabStaff \emptymusic
      >>
+
+    \header {
+      tagline = ""  % removed
+    } 
 
 %% *EOF*
