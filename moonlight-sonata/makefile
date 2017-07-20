@@ -1,6 +1,5 @@
 #!/usr/bin/make -f
-## makefile (for blank-music-sheet)
-## Mac Radigan
+## makefile (for moonlight-sonata)
 
 .PHONY: convert packages-apt clobber clean
 
