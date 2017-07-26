@@ -7,7 +7,8 @@
 
 .DEFAULT_GOAL := default
 
-target  := tesselation_18
+target  := tesselation_17
+#target  := tesselation_18
 #target  := factors_15_5_3
 #target  := factors_15_3_5
 #target  := factors_18_3_2_3
