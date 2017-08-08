@@ -75,7 +75,7 @@ EOT
   {
     #cmd=$1; shift
     #$cmd $*
-    env DISPLAY=:3 /usr/bin/stumpwm --eval '(load #P"~/quicklisp/setup.lisp")'
+    env DISPLAY=:3 /usr/bin/stumpwm --eval '(load #P"~/quicklisp/setup.lisp")' 1>/dev/null 2>/dev/null
   }
 
   sigint()

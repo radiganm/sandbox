@@ -8,6 +8,7 @@ exit
  ;(sb-ext:run-program "/usr/bin/env" '("curl" "-O" "https://beta.quicklisp.org/quicklisp.lisp"))
  ;(load #P"./quicklisp.lisp")
  ;(quicklisp-quickstart:install)
+
   (load #P"~/quicklisp/setup.lisp")
 
  ;(ql:add-to-init-file)
@@ -15,6 +16,9 @@ exit
   (ql:quickload "cl-ppcre")
   (ql:quickload "alexandria")
   (ql:quickload "clx")
+  (ql:quickload "quicklisp-slime-helper")
+  (ql:quickload "split-sequence")
+  (ql:quickload "swank-client")
 
  ;(load #P"./make-image.lisp")
 
