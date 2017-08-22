@@ -20,7 +20,7 @@ clean:
 	stack $@
 
 run: install
-	~/.local/bin/$(target)-exe -o ../$(target).pdf -w 200 -h 20
+	~/.local/bin/$(target)-exe -o ../$(target).pdf -w 800 -h 80
 
 view:
 	@zathura -x -a ../$(target).pdf 1>/dev/null 2>/dev/null

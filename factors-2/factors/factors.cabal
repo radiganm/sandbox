@@ -2,13 +2,10 @@ name:                factors
 version:             0.1.0.0
 -- synopsis:
 -- description:
-homepage:            https://github.com/githubuser/factors#readme
-license:             BSD3
-license-file:        LICENSE
-author:              Author name here
+homepage:            http://projects.haskell.org/diagrams/gallery/Factorization.html 
+author:              Brent Yorgey
 maintainer:          example@example.com
-copyright:           2017 Author name here
-category:            Web
+category:            Visualization
 build-type:          Simple
 extra-source-files:  README.md
 cabal-version:       >=1.10
@@ -52,4 +49,4 @@ test-suite factors-test
 
 source-repository head
   type:     git
-  location: https://github.com/githubuser/factors
+  location: https://github.com/radiganm/sandbox
