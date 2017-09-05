@@ -12,5 +12,6 @@ see also:
 
   [[https://www.youtube.com/watch?v=NaL_Cb42WyY][3Blue1Brown: Pi hiding in prime regularities]]
 
+  [[https://en.wikipedia.org/wiki/Basel_problem][Wikipedia: Basel Problem]]
 
  # *EOF* 
