@@ -1,5 +1,16 @@
 #+TITLE: A046109: Number of lattice points (x,y) on the circumference of a circle of radius n with center at (0,0). 
 
-see http://oeis.org/A046109
+see also:
+
+  [[http://oeis.org/A046109][The Online Encyclopedia Of Integer Sequences: A046109 Number of lattice points (x,y) on the circumference of a circle of radius n with center at (0,0)]]
+
+  [[https://en.wikipedia.org/wiki/Gauss_circle_problem][Wikipedia: Gauss Circle Problem]]
+
+  [[http://mathworld.wolfram.com/GausssCircleProblem.html][Wolfram: Gauss Circle Problem]]
+
+  [[http://mathworld.wolfram.com/CircleLatticePoints.html][Wolfram: Circle Lattice Points]]
+
+  [[https://www.youtube.com/watch?v=NaL_Cb42WyY][3Blue1Brown: Pi hiding in prime regularities]]
+
 
  # *EOF* 
