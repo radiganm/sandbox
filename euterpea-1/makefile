@@ -2,20 +2,25 @@
 ## makefile (for euterpea-1)
 ## Mac Radigan
 
-.PHONY: euterpea-1 clean clobber run
+target := euterpea-1
 
-.DEFAULT_GOAL := euterpea-1
+.PHONY: $(target) clean clobber run play
 
-euterpea-1: euterpea-1.hs
+.DEFAULT_GOAL := $(target)
+
+$(target): $(target).hs
 	ghc -o $@ -threaded $<
 
-run:
-	./euterpea-1
+run: $(target)
+	./$(target)
+
+play: run
+	timidity example.mid
 
 clean:
 	-rm -f *.hi *.o
 
 clobber: clean
-	-rm -f euterpea-1
+	-rm -f $(target)
 
 ## *EOF*
