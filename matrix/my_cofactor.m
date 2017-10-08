@@ -1,5 +1,4 @@
 %% my_cofactor.m
-%% Mac Radigan
 %% Copyright 2015 Mac Radigan
 %% All Rights Reserved
 

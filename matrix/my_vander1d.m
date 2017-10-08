@@ -1,5 +1,4 @@
 %% my_vander1d.m
-%% Mac Radigan
 %% Copyright 2015 Mac Radigan
 %% All Rights Reserved
 
