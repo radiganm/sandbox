@@ -1,5 +1,5 @@
 #!/usr/bin/make -f
-## makefile (for stack)
+## makefile (for optargs)
 ## Mac Radigan
 
 .PHONY: build clean run install test
