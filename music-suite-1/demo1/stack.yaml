@@ -41,6 +41,7 @@ packages:
 - location:
    git: https://github.com/music-suite/music-suite.git
    commit: d784c6dd10e156dc1ca0bb00c0c7c27b7335d3f9
+#  commit: 8e6a771d884fe486cb4e24d8d7714f0303bac5ba
    extra-dep: true
 - location:
    git: https://github.com/music-suite/music-parts.git
@@ -70,10 +71,10 @@ packages:
    git: https://github.com/music-suite/musicxml2.git
    commit: 430d8ea93b702e48dc7bd00ff1af9a06e27a83ab
    extra-dep: true
-#- location:
-#   git: https://github.com/music-suite/abcnotation.git
-#   commit: b0a9ef74f52387285a94e3f90a8459367ad1e2ae
-#   extra-dep: true
+- location:
+   git: https://github.com/music-suite/abcnotation.git
+   commit: b0a9ef74f52387285a94e3f90a8459367ad1e2ae
+   extra-dep: true
 ##- location:
 ##   git: https://github.com/music-suite/music-dynamics-literal.git
 ##   commit: 90703427124bac0183f87d3e201b892e69ef2294
