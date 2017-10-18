@@ -20,30 +20,7 @@ executable demo1-exe
   ghc-options:         -threaded -rtsopts -with-rtsopts=-N
   build-depends:       base
                      , demo1
-                     , monadplus >= 1.4.2
                      , music-suite >= 1.9.0
-                     , music-score >= 1.9.0
-                     , music-parts >= 1.9.0
-                     , data-interval >= 1.2.0
-                     , abcnotation >= 1.9.0
-                     , lilypond >= 1.9.0
-                     , music-articulation >= 1.9.0
-                     , music-dynamics >= 1.9.0
-                     , music-dynamics-literal >= 1.9.0
-                     , music-pitch >= 1.9.0
-                     , music-pitch-literal >= 1.9.0
-                     , music-preludes >= 1.9.0
-                     , musicxml2 >= 1.9.0
-                     , average >= 0.6.1
-                     , positive >= 0.4.1
-                     , prettify >= 1.0
-                     , reverse-apply >= 2.0.1
-                     , roman-numerals >= 0.5.1.5
-                     , type-unary >= 0.3.0
-                     , vector-space-points >= 0.2.1.2
-                     , applicative-numbers >= 0.1.3
-                     , extended-reals >= 0.2.2.0
-                     , ty >= 0.1.7
   default-language:    Haskell2010
 
 test-suite demo1-test

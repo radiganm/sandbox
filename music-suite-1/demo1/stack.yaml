@@ -38,24 +38,61 @@ resolver: lts-9.3
 # will not be run. This is useful for tweaking upstream packages.
 packages:
 - '.'
+- location:
+   git: https://github.com/music-suite/music-suite.git
+   commit: d784c6dd10e156dc1ca0bb00c0c7c27b7335d3f9
+   extra-dep: true
+- location:
+   git: https://github.com/music-suite/music-parts.git
+   commit: efb40702adf63934c8f97b7f79851168ac0d6dc0
+   extra-dep: true
+- location:
+    git: https://github.com/music-suite/music-score.git
+    commit: 338c0e5399c310f24d76509d5f652eb21eece2ff
+    extra-dep: true
+- location:
+   git: https://github.com/music-suite/music-dynamics.git
+   commit: 4bd0d2e995ac89e3d5c617310582c3cbdc51baaf
+   extra-dep: true
+- location:
+   git: https://github.com/music-suite/music-pitch.git
+   commit: 3a732aee29e8e49526c97403926a66090c669c8a
+   extra-dep: true
+- location:
+   git: https://github.com/music-suite/lilypond.git
+   commit: ea85e3198157777b8eeb259a2b38586b0dbd6bcd
+   extra-dep: true
+- location:
+   git: https://github.com/music-suite/music-articulation.git
+   commit: 6549d7c5511d142a69d73d020563c4bd00b12653
+   extra-dep: true
+- location:
+   git: https://github.com/music-suite/musicxml2.git
+   commit: 430d8ea93b702e48dc7bd00ff1af9a06e27a83ab
+   extra-dep: true
+#- location:
+#   git: https://github.com/music-suite/abcnotation.git
+#   commit: b0a9ef74f52387285a94e3f90a8459367ad1e2ae
+#   extra-dep: true
+##- location:
+##   git: https://github.com/music-suite/music-dynamics-literal.git
+##   commit: 90703427124bac0183f87d3e201b892e69ef2294
+##   extra-dep: true
+##- location:
+##   git: https://github.com/music-suite/music-pitch-literal.git
+##   commit: 0c21af2d65fd2a069211c8d0354a985de96faf09
+##   extra-dep: true
+##- location:
+##   git: https://github.com/music-suite/music-preludes.git
+##   commit: ec33d06095843f16de9126ee18f626abbf8fd073
+##   extra-dep: true
+
 # Dependency packages to be pulled from upstream that are not in the resolver
 # (e.g., acme-missiles-0.3)
-extra-deps: 
-- 'monadplus-1.4.2'
-- 'music-suite-1.9.0'
-- 'music-score-1.9.0'
-- 'music-parts-1.9.0'
-- 'data-interval-1.2.0'
-- 'abcnotation-1.9.0'
-- 'lilypond-1.9.0'
-- 'music-articulation-1.9.0'
-- 'music-dynamics-1.9.0'
-- 'music-dynamics-literal-1.9.0'
-- 'music-pitch-1.9.0'
-- 'music-pitch-literal-1.9.0'
-- 'music-preludes-1.9.0'
-- 'musicxml2-1.9.0'
+extra-deps:
+- 'hsini-0.5.1.1'
 - 'average-0.6.1'
+- 'data-interval-1.3.0'
 - 'positive-0.4.1'
 - 'prettify-1.0'
 - 'reverse-apply-2.0.1'
@@ -65,7 +102,18 @@ extra-deps:
 - 'applicative-numbers-0.1.3'
 - 'extended-reals-0.2.2.0'
 - 'ty-0.1.7'
-
+#- 'lilypond-1.9.0'
+#- 'music-pitch-1.9.0'
+#- 'abcnotation-1.9.0'
+#- 'music-suite-1.9.0'
+#- 'music-parts-1.9.0'
+#- 'music-score-1.9.0'
+#- 'music-dynamics-1.9.0'
+#- 'music-dynamics-literal-1.9.0'
+#- 'music-articulation-1.9.0'
+#- 'musicxml2-1.9.0'
+#- 'music-pitch-literal-1.9.0'
+#- 'music-preludes-1.9.0'
 
 # Override default flag values for local packages and extra-deps
 flags: {}
