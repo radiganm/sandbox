@@ -6,11 +6,25 @@
 
 all: build
 
-build:
-	g++ -O3 -std=c++1z -o cxx_using cxx_using.cc
+CC       = g++
+CCFLAGS := -O3 -std=c++1z
+
+OBJS =             \
+	cxx_using_1.o \
+	cxx_using_2.o \
+	cxx_using_3.o  
+  
+BINS = $(OBJS:.o=)
+
+build: $(OBJS)
+
+%.o : %.cc
+	$(CC) -c $(CCFLAGS) $(CPPFLAGS) $< -o $@
+	echo $(CC) -o $(@:.o=) $@
 
 clean:
-	-rm -f ./cxx_using
+	-rm -f $(OBJS)
+	-rm -f $(BINS)
 
 packages-apt:
 	apt-get install -y build-essential

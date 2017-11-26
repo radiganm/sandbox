@@ -80,13 +80,13 @@ int main(int argc, char *argv[])
       DrawAQuad();
       glXSwapBuffers(dpy, win);
     }
-    else if(xev.type == KeyPress)
-    {
-      glXMakeCurrent(dpy, None, NULL);
-      glXDestroyContext(dpy, glc);
-      XDestroyWindow(dpy, win);
-      XCloseDisplay(dpy);
-      exit(0);
-    }
+  //else if(xev.type == KeyPress)
+  //{
+  //  glXMakeCurrent(dpy, None, NULL);
+  //  glXDestroyContext(dpy, glc);
+  //  XDestroyWindow(dpy, win);
+  //  XCloseDisplay(dpy);
+  //  exit(0);
+  //}
   }
 }

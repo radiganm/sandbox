@@ -1,0 +1,8 @@
+(asdf:defsystem #:module-1
+  :serial t
+  :description "Module-1 description"
+  :author "Mac Radigan"
+  :license "GPLv3"
+  :depends-on (#:module-1)
+  :components ((:file "package")
+               (:file "module-1")))
