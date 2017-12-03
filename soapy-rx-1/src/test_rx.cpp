@@ -98,27 +98,34 @@
 
       while (is_running)
       {
-        int ok = device->readStream(stream, buffers.data(), n_elements, flags, time);
-        if (ok < 0) switch (ok)
+        int n_read = device->readStream(stream, buffers.data(), n_elements, flags, time);
+        if (n_read < 0) switch (n_read)
         {
           case SOAPY_SDR_TIMEOUT:
+            std::cerr << "ERROR:  Timeout - " << SoapySDR::errToStr(n_read) << std::endl;
             continue;
           case SOAPY_SDR_OVERFLOW:
+            std::cerr << "ERROR:  Overflow - " << SoapySDR::errToStr(n_read) << std::endl;
             continue;
           case SOAPY_SDR_UNDERFLOW:
+            std::cerr << "ERROR:  Not Supported - " << SoapySDR::errToStr(n_read) << std::endl;
             continue;
           case SOAPY_SDR_NOT_SUPPORTED:
             continue;
+            std::cerr << "ERROR:  Time Error - " << SoapySDR::errToStr(n_read) << std::endl;
           case SOAPY_SDR_TIME_ERROR:
             continue;
+            std::cerr << "ERROR:  Corruption - " << SoapySDR::errToStr(n_read) << std::endl;
           case SOAPY_SDR_CORRUPTION:
             continue;
+            std::cerr << "ERROR:  Stream Error - " << SoapySDR::errToStr(n_read) << std::endl;
           case SOAPY_SDR_STREAM_ERROR:
             continue;
           default:
-            std::cerr << "Unexpected stream error " << SoapySDR::errToStr(ok) << std::endl;
+            std::cerr << "Unexpected stream error " << SoapySDR::errToStr(n_read) << std::endl;
         }
-        std::this_thread::sleep_for(10ms);
+        std::cerr << "read " << n_read << " of " << n_elements << " elements at " << time << " nanoseconds" << std::endl;
+      //std::this_thread::sleep_for(10ms);
       }
 
       device->deactivateStream(stream);
