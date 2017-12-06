@@ -1,4 +1,4 @@
-  // Mac Radigan
+  * Mac Radigan
 
   #include <SoapySDR/Device.hpp>
   #include <SoapySDR/Formats.hpp>
