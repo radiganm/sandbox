@@ -39,6 +39,7 @@ namespace rad::sandbox {
       using iterator_t = Iterator<T, E>;
       Iterable() = default;
       virtual ~Iterable() {};
+      virtual iterator_t iterator(T &o, std::ptrdiff_t index=0) { return iterator_t(o, index); };
       virtual iterator_t begin() = 0;
       virtual iterator_t end() = 0;
       inline virtual const E& get() const = 0;

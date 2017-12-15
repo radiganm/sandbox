@@ -32,18 +32,6 @@ namespace rad::sandbox {
     return foo_;
   }
 
-  iterator_t FooFileA::begin()
-  {
-    iterator_t *it = new iterator_t(*this);
-    return *it;
-  }
-
-  iterator_t FooFileA::end()
-  {
-    iterator_t *it = new iterator_t(*this, FOO_FILE_A__EOF);
-    return *it;
-  }
-
   inline std::ptrdiff_t FooFileA::get_index(std::ptrdiff_t n) const
   {
     return n;

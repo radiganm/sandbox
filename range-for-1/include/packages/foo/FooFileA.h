@@ -19,8 +19,8 @@ namespace rad::sandbox {
       virtual ~FooFileA();
       virtual void open(std::string const& filename);
       virtual void close();
-      virtual iterator_t begin();
-      virtual iterator_t end();
+      virtual iterator_t begin() { return iterator(*this); };
+      virtual iterator_t end() { return iterator(*this, -1); };
       virtual const foo_a_element_t& get() const;
       inline virtual std::ptrdiff_t get_index(std::ptrdiff_t n) const;
       inline virtual void advance(std::ptrdiff_t n);
