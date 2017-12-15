@@ -7,7 +7,10 @@
 
   #include <assert.h>
 
+  #define FOO_FILE_A__EOF (100)
+
 namespace rad::sandbox {
+
 
   using foo_a_element_t = uint32_t;
   using iterator_t = Iterator<FooFileA, foo_a_element_t>;
@@ -37,21 +40,20 @@ namespace rad::sandbox {
 
   iterator_t FooFileA::end()
   {
-    iterator_t *it = new iterator_t(*this);
-    it->advance(100);
+    iterator_t *it = new iterator_t(*this, FOO_FILE_A__EOF);
     return *it;
   }
 
   inline void FooFileA::advance(std::ptrdiff_t n)
   {
-    ++index_;
     ++foo_;
   }
 
   std::ostream& operator<<(std::ostream &os, const rad::sandbox::FooFileA &o)
   {
     std::ios::fmtflags flags(os.flags());
-    os << "[ Foo File A ]" << std::endl;
+    os << "[ Foo File A ]" << std::endl << std::flush;
+    os << ".foo = " << o.foo_ << std::endl << std::flush;
     os.flags(flags);
     return os;
   }

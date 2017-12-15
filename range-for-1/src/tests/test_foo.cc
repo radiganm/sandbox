@@ -46,9 +46,7 @@
     std::cout << "range-based for loop: " << std::endl << std::flush;
     for(auto &x: *in)
     {
-      std::cout << std::endl << "next..." << std::endl << std::flush;
       std::cout << x << std::endl << std::flush;
-      std::cout << std::endl << "top..." << std::endl << std::flush;
     }
 
     delete in;
