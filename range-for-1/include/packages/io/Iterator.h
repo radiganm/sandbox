@@ -18,8 +18,7 @@ namespace rad::sandbox {
   class Iterator: public std::iterator<std::input_iterator_tag, T, ptrdiff_t,const T*, const T&>
   {
     public:
-      Iterator(T &ref) : ref_(std::ref(ref)), n_(0) {};
-      Iterator(T &ref, std::ptrdiff_t n) : ref_(std::ref(ref)), n_(n) {};
+      Iterator(T &ref, std::ptrdiff_t n=0) : ref_(std::ref(ref)), n_(n) {};
       virtual ~Iterator() {};
       const E&    operator*() const                           { return ref_.get().get(); };
       Iterator&   operator++()                                { advance(1); return *this; };
