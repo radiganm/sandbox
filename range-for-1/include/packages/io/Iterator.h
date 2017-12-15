@@ -22,9 +22,9 @@ namespace rad::sandbox {
       Iterator(T &ref, std::ptrdiff_t n) : ref_(std::ref(ref)), n_(n) {};
       virtual ~Iterator() {};
       const E&    operator*() const                           { return ref_.get().get(); };
-      Iterator&   operator++()                                { iadvance(1); return *this; };
+      Iterator&   operator++()                                { advance(1); return *this; };
       inline bool operator!=(Iterator<T, E> const &o) const   { return n_ != o.n_; };
-      inline void iadvance(std::ptrdiff_t n) { n_ += n; ref_.get().advance(n); };
+      inline void advance(std::ptrdiff_t n) { n_ += n; ref_.get().advance(n); };
     private:
       std::reference_wrapper<T> ref_;
       std::ptrdiff_t n_;
