@@ -18,15 +18,18 @@ namespace rad::sandbox {
   class Iterator: public std::iterator<std::input_iterator_tag, T, ptrdiff_t,const T*, const T&>
   {
     public:
-      Iterator(T &ref, std::ptrdiff_t n=0) : ref_(std::ref(ref)), n_(n) {};
+      Iterator(T &ref, std::ptrdiff_t index=0) : ref_(std::ref(ref)), index_(index) {};
       virtual ~Iterator() {};
-      const E&    operator*() const                           { return ref_.get().get(); };
-      Iterator&   operator++()                                { advance(1); return *this; };
-      inline bool operator!=(Iterator<T, E> const &o) const   { return n_ != o.n_; };
-      inline void advance(std::ptrdiff_t n) { n_ += n; ref_.get().advance(n); };
+      const E&    operator*() const { return ref_.get().get(); };
+      Iterator&   operator++() { advance(1); return *this; };
+      inline bool operator!=(Iterator<T, E> const &o) const 
+      { 
+        return ref_.get().get_index(index_) != o.ref_.get().get_index(o.index_); 
+      };
+      inline void advance(std::ptrdiff_t n) { index_ += n; ref_.get().advance(n); };
     private:
       std::reference_wrapper<T> ref_;
-      std::ptrdiff_t n_;
+      std::ptrdiff_t index_;
   }; // Iterator<T>
 
   template<typename T, typename E>
@@ -36,9 +39,10 @@ namespace rad::sandbox {
       using iterator_t = Iterator<T, E>;
       Iterable() = default;
       virtual ~Iterable() {};
-      virtual iterator_t begin()                    = 0;
-      virtual iterator_t end()                      = 0;
-      virtual const E& get() const                  = 0;
+      virtual iterator_t begin() = 0;
+      virtual iterator_t end() = 0;
+      inline virtual const E& get() const = 0;
+      inline virtual std::ptrdiff_t get_index(std::ptrdiff_t n) const = 0;
       inline virtual void advance(std::ptrdiff_t n) = 0;
     protected:
   }; // Iterable<T>

@@ -22,6 +22,7 @@ namespace rad::sandbox {
       virtual iterator_t begin();
       virtual iterator_t end();
       virtual const foo_a_element_t& get() const;
+      inline virtual std::ptrdiff_t get_index(std::ptrdiff_t n) const;
       inline virtual void advance(std::ptrdiff_t n);
     private:
       foo_a_element_t foo_;

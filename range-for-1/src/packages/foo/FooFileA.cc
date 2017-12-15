@@ -44,6 +44,11 @@ namespace rad::sandbox {
     return *it;
   }
 
+  inline std::ptrdiff_t FooFileA::get_index(std::ptrdiff_t n) const
+  {
+    return n;
+  }
+
   inline void FooFileA::advance(std::ptrdiff_t n)
   {
     ++foo_;
