@@ -1,0 +1,9 @@
+## python3 ./test_inotify.py
+## fn=/tmp/test-1.file; touch $fn; sleep 3; rm $fn
+
+2017-12-19 20:07:19,708 - __main__ - INFO - WD=(1) MASK=(256) COOKIE=(0) LEN=(16) MASK->NAMES=['IN_CREATE'] WATCH-PATH=[/tmp] FILENAME=[test-1.file]
+2017-12-19 20:07:19,708 - __main__ - INFO - WD=(1) MASK=(32) COOKIE=(0) LEN=(16) MASK->NAMES=['IN_OPEN'] WATCH-PATH=[/tmp] FILENAME=[test-1.file]
+2017-12-19 20:07:19,708 - __main__ - INFO - WD=(1) MASK=(4) COOKIE=(0) LEN=(16) MASK->NAMES=['IN_ATTRIB'] WATCH-PATH=[/tmp] FILENAME=[test-1.file]
+2017-12-19 20:07:19,708 - __main__ - INFO - WD=(1) MASK=(8) COOKIE=(0) LEN=(16) MASK->NAMES=['IN_CLOSE_WRITE'] WATCH-PATH=[/tmp] FILENAME=[test-1.file]
+2017-12-19 20:07:22,712 - __main__ - INFO - WD=(1) MASK=(512) COOKIE=(0) LEN=(16) MASK->NAMES=['IN_DELETE'] WATCH-PATH=[/tmp] FILENAME=[test-1.file]
+
