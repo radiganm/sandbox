@@ -1,29 +1,34 @@
 #!/usr/bin/make -f
 ## makefile
 
-.PHONY: bootstrap build clean run log
+.PHONY: bootstrap build clean run log generate
 .DEFAULT_GOAL := all
 
-all: build run
+all: build
 
 #CC       = g++
 CC       = gcc
 CCFLAGS := -O3 -std=c++1z
 
-OBJS =             \
-	inotify_dtree.o
+OBJS =                 \
+	demo_inotify.o     \
+	error_functions.o
+
+target = demo_inotify
   
 BINS = $(OBJS:.o=)
 
-build: $(BINS)
+build: $(target)
+
+$(target) : $(OBJS)
+	$(CC) -o $@ $(OBJS)
 
 %.o : %.cc
 	$(CC) -c $(CCFLAGS) $(CPPFLAGS) $< -o $@
-	$(CC) -o $(@:.o=) $@
 
 run:
 	-mkdir -p ./indir
-	./$(BINS) -v 5 -l ./$(BIN).log -x ./indir
+	./$(target) ./indir
 
 log:
 	lnav -c ':goto 100%' ./indir
@@ -31,6 +36,9 @@ log:
 clean:
 	-rm -f $(OBJS)
 	-rm -f $(BINS)
+
+generate:
+	sh Build_ename.sh > ename.c.inc
 
 packages-apt:
 	apt-get install -y build-essential
