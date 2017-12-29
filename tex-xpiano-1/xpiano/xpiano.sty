@@ -1,0 +1,113 @@
+\ProvidesPackage{xpiano}[2015/05/21 from piano.sty by Émile Daneault]
+\RequirePackage{xcolor}
+\usepackage{xparse}
+
+\definecolor{pianodefault}{RGB}{255,127,0}
+
+\ExplSyntaxOn
+\NewDocumentCommand{\keyboard}{ m }
+ {
+  \piano_keyboard:n { #1 }
+ }
+
+\keys_define:nn { piano }
+ {
+  numbers .bool_set:N = \l_piano_numbers_bool,
+  color   .tl_set:N  = \l_piano_color_tl,
+  one     .tl_set:N  = \l_piano_one_tl,
+  two     .tl_set:N  = \l_piano_two_tl,
+  three   .tl_set:N  = \l_piano_three_tl,
+  four    .tl_set:N  = \l_piano_four_tl,
+  five    .tl_set:N  = \l_piano_five_tl,
+  six     .tl_set:N  = \l_piano_six_tl,
+  seven   .tl_set:N  = \l_piano_seven_tl,
+  numbers .initial:n = false,
+  color   .initial:n = {pianodefault},
+  one     .initial:n = {},
+  two     .initial:n = {},
+  three   .initial:n = {},
+  four    .initial:n = {},
+  five    .initial:n = {},
+  six     .initial:n = {},
+  seven   .initial:n = {},
+ }
+
+\cs_new_protected:Npn \piano_keyboard:n #1
+ {
+  \group_begin:
+  \keys_set:nn { piano } { #1 }
+  %% Clavier 2 octaves
+  \setlength{\unitlength}{0.5cm}
+  \begin{picture}(15,4.5)
+  %Touches blanches
+  \multiput(0,0)(1,0){14}{\line(0,1){4}}
+
+  %Contour
+  \put(0,0){\line(0,1){4}}
+  \put(0,0){\line(1,0){14}}
+  \put(14,0){\line(0,1){4}}
+  \put(0,4){\line(1,0){14}}
+
+  %Touches noires
+  \linethickness{3mm}
+  \multiput(1,4)(1,0){2}{\line(0,-1){3}}
+  \multiput(4,4)(1,0){3}{\line(0,-1){3}}
+  \multiput(8,4)(1,0){2}{\line(0,-1){3}}
+  \multiput(11,4)(1,0){3}{\line(0,-1){3}}
+  %Rond de note
+  \color{\l_piano_color_tl}
+  \__piano_do_key:N \l_piano_one_tl
+  \__piano_do_key:N \l_piano_two_tl
+  \__piano_do_key:N \l_piano_three_tl
+  \__piano_do_key:N \l_piano_four_tl
+  \__piano_do_key:N \l_piano_five_tl
+  \__piano_do_key:N \l_piano_six_tl
+  \__piano_do_key:N \l_piano_seven_tl
+
+  \end{picture}
+  \group_end:
+ }
+
+\cs_new_protected:Npn \__piano_add_note:nn #1 #2
+ {
+  \put(#2){\circle*{0.5}}
+  \bool_if:NT \l_piano_numbers_bool
+   {
+    \put(#2){\makebox(0,0){\color{black}\tiny#1}}
+   }
+ }
+
+\cs_new_protected:Npn \__piano_do_key:N #1
+ {
+  \str_case:Vn #1
+   {
+    {}{}% initial case
+    {Co}{\__piano_add_note:nn {0}{0.5,0.5}}
+    {Do}{\__piano_add_note:nn {2}{1.5,0.5}}
+    {Eo}{\__piano_add_note:nn {4}{2.5,0.5}}
+    {Fo}{\__piano_add_note:nn {5}{3.5,0.5}}
+    {Go}{\__piano_add_note:nn {7}{4.5,0.5}}
+    {Ao}{\__piano_add_note:nn {9}{5.5,0.5}}
+    {Bo}{\__piano_add_note:nn {11}{6.5,0.5}}
+    {Ct}{\__piano_add_note:nn {0}{7.5,0.5}}
+    {Dt}{\__piano_add_note:nn {2}{8.5,0.5}}
+    {Et}{\__piano_add_note:nn {4}{9.5,0.5}}
+    {Ft}{\__piano_add_note:nn {5}{10.5,0.5}}
+    {Gt}{\__piano_add_note:nn {7}{11.5,0.5}}
+    {At}{\__piano_add_note:nn {9}{12.5,0.5}}
+    {Bt}{\__piano_add_note:nn {11}{13.5,0.5}}
+    {Cso}{\__piano_add_note:nn {1}{1,1.5}}
+    {Dso}{\__piano_add_note:nn {3}{2,1.5}}
+    {Fso}{\__piano_add_note:nn {6}{4,1.5}}
+    {Gso}{\__piano_add_note:nn {8}{5,1.5}}
+    {Aso}{\__piano_add_note:nn {10}{6,1.5}}
+    {Cst}{\__piano_add_note:nn {1}{8,1.5}}
+    {Dst}{\__piano_add_note:nn {3}{9,1.5}}
+    {Fst}{\__piano_add_note:nn {6}{11,1.5}}
+    {Gst}{\__piano_add_note:nn {8}{12,1.5}}
+    {Ast}{\__piano_add_note:nn {10}{13,1.5}}
+   }
+ }
+
+\cs_generate_variant:Nn \str_case:nn { V }
+\ExplSyntaxOff
