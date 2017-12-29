@@ -1,0 +1,4 @@
+employee{101, "Last1", "First1", 10.01}
+employee{102, "Last2", "First2", 10.02}
+employee{103, "Last3", "First3", 10.03}
+
