@@ -126,33 +126,21 @@
       skipper             = space | single_line_comment | block_comment;
     }
 
-    while (getline(std::cin, str))
+    Iterator f(std::cin >> std::noskipws), l;
+    std::vector<schedule::schedule> sched;
+    //bool ok = phrase_parse(f, l, *qi::int_, skipper, data);
+    bool ok = phrase_parse(f, l, grammar, skipper, sched);
+    if (ok) 
     {
-      schedule::schedule sched;
-      iterator_t iter = str.begin();
-      iterator_t end = str.end();
-#if 0
-      bool r = phrase_parse(iter, end, grammar, skipper, sched);
-#else
-      bool r = phrase_parse(iter, end, grammar, skip, sched);
-#endif
-      if (r && iter == end)
-      {
-        std::cout << boost::fusion::tuple_open('[');
-        std::cout << boost::fusion::tuple_close(']');
-        std::cout << boost::fusion::tuple_delimiter(", ");
-
-        std::cout << "-------------------------\n";
-        std::cout << "Parsing succeeded\n";
-        std::cout << "got: " << boost::fusion::as_vector(sched) << std::endl;
-        std::cout << "\n-------------------------\n";
-      }
-      else
-      {
-        std::cout << "-------------------------\n";
-        std::cout << "Parsing failed\n";
-        std::cout << "-------------------------\n";
-      }
+      //std::copy(data.begin(), data.end(), std::ostream_iterator<int>(std::cout << "Parsed ", " "));
+      std::cout << "\n";
+    } else 
+    {
+      std::cout << "Parse failed\n";
+    }
+    if (f!=l) 
+    {
+      std::cout << "Remaining unparsed: '" << std::string(f,l) << "'\n";
     }
 
     std::cout << "done.\n\n";
