@@ -6,7 +6,7 @@
 
 all: build
 
-target = employee
+target = skipper
 
 CC       = g++
 CCFLAGS := -O3 -std=c++1z

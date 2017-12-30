@@ -1,0 +1,11 @@
+123 // line comments 234
+
+/* block 345
+   comments */ 456
+
+567
+
+/* 678 /* nested
+   789 block */ comments 890 */
+
+901
