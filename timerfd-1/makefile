@@ -1,5 +1,6 @@
 #!/usr/bin/make -f
-## makefile
+## makefile (for timerfd.cc)
+## Mac Radigan
 
 .PHONY: bootstrap build clean run
 .DEFAULT_GOAL := all
