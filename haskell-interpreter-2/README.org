@@ -1,0 +1,16 @@
+#+TITLE: haskell-interpreter-2 (example)
+#+AUTHOR: Mac Radigan
+
+#+begin_src bash :tangle ./compile.sh
+  make build
+#+end_src
+
+#+begin_src bash :tangle ./install.sh
+  make install
+#+end_src
+
+#+begin_src bash :tangle ./run.sh
+  make run
+#+end_src
+
+ # *EOF* 
