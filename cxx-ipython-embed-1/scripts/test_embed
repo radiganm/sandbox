@@ -1,0 +1,15 @@
+#!/bin/sh
+### test_embed
+###
+### Copyright 2017 Mac Radigan
+### All Rights Reserved
+
+  d=${0%/*}; f=${0##*/}; n=${f%.*}; e=${f##*.}
+  root=${0%/*}/..
+
+ export LD_LIBRARY_PATH=$root
+ export PYTHONPATH=${PYTHONPATH}:${root}/library
+
+ env LD_LIBRARY_PATH=$root PYTHONPATH=${PYTHONPATH}:${root}/library $root/bin/$n $*
+
+### *EOF*
