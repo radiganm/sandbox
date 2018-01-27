@@ -27,6 +27,7 @@
       std::fill_n( std::ostream_iterator<char_type>( std::cout ), tabs_ * 4, space_ch );
   
       // output the match
+      //std::cout << what[0] << " : " << what.regex_id() << '\n';
       std::cout << what[0] << '\n';
   
       // output any nested matches
