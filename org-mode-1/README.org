@@ -1,0 +1,26 @@
+#+OPTIONS: tex:t
+#+STARTUP: latexpreview
+#+LaTeX_HEADER: \usepackage{amsmath}
+#+TITLE: Smith's Determinant
+
+$$\begin{vmatrix} 
+\gcd\left(1,1\right) & \gcd\left(1,2\right) & \gcd\left(1,3\right) & \cdots & \gcd\left(1,N\right) \\
+\gcd\left(2,1\right) & \gcd\left(2,2\right) & \gcd\left(2,3\right) & \cdots & \gcd\left(2,N\right) \\
+\vdots               & \vdots               & \vdots               & \ddots & \vdots               \\
+\gcd\left(N,1\right) & \gcd\left(N,2\right) & \gcd\left(N,3\right) & \cdots & \gcd\left(N,N\right) \notag
+\end{vmatrix}
+=
+\displaystyle{\prod_{n=1}^{N}\varphi\left(n\right)}
+$$
+
+where
+
+$$
+\varphi\left(n\right)
+=
+n \displaystyle{\prod_{p_k \mid n}\varphi\left(1 - \frac{1}{p_k}\right)}
+$$
+
+and $p_k$ are distinct prime numbers with $p_k < n$
+
+ # *EOF* 
