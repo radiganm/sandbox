@@ -3,24 +3,12 @@
 #+LaTeX_HEADER: \usepackage{amsmath}
 #+TITLE: Smith's Determinant
 
-$$\begin{vmatrix} 
-\gcd\left(1,1\right) & \gcd\left(1,2\right) & \gcd\left(1,3\right) & \cdots & \gcd\left(1,N\right) \\
-\gcd\left(2,1\right) & \gcd\left(2,2\right) & \gcd\left(2,3\right) & \cdots & \gcd\left(2,N\right) \\
-\vdots               & \vdots               & \vdots               & \ddots & \vdots               \\
-\gcd\left(N,1\right) & \gcd\left(N,2\right) & \gcd\left(N,3\right) & \cdots & \gcd\left(N,N\right) \notag
-\end{vmatrix}
-=
-\displaystyle{\prod_{n=1}^{N}\varphi\left(n\right)}
-$$
+[ltxpng/README_4913fa2009a50f7226b4d564e9217b57963612f6.png]
 
 where
 
-$$
-\varphi\left(n\right)
-=
-n \displaystyle{\prod_{p_k \mid n}\varphi\left(1 - \frac{1}{p_k}\right)}
-$$
+[ltxpng/README_34c5f03db97275a17fe8b28722e0d5144520913f.png]
 
-and $p_k$ are distinct prime numbers with $p_k < n$
+and [ltxpng/README_230416b64d55a162093c39539b18f292fb759a2a.png] are distinct prime numbers with [ltxpng/README_51492662582f66b7472809c6d2559e582ad1bc34.png]
 
  # *EOF* 
