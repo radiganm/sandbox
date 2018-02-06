@@ -3,12 +3,12 @@
 #+LaTeX_HEADER: \usepackage{amsmath}
 #+TITLE: Smith's Determinant
 
-[ltxpng/README_4913fa2009a50f7226b4d564e9217b57963612f6.png]
+[[ltxpng/README_4913fa2009a50f7226b4d564e9217b57963612f6.png]]
 
 where
 
-[ltxpng/README_34c5f03db97275a17fe8b28722e0d5144520913f.png]
+[[ltxpng/README_34c5f03db97275a17fe8b28722e0d5144520913f.png]]
 
-and [ltxpng/README_230416b64d55a162093c39539b18f292fb759a2a.png] are distinct prime numbers with [ltxpng/README_51492662582f66b7472809c6d2559e582ad1bc34.png]
+and [[ltxpng/README_230416b64d55a162093c39539b18f292fb759a2a.png]] are distinct prime numbers with [[ltxpng/README_51492662582f66b7472809c6d2559e582ad1bc34.png]]
 
  # *EOF* 
