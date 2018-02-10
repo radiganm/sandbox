@@ -1,0 +1,4 @@
+from http://www.boost.org/doc/libs/1_37_0/doc/html/boost_asio/example/multicast/receiver.cpp
+from http://www.boost.org/doc/libs/1_46_1/doc/html/boost_asio/example/multicast/sender.cpp
+
+from http://www.dest-unreach.org/socat/doc/socat-multicast.html

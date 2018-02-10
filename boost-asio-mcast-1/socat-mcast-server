@@ -1,0 +1,20 @@
+#!/bin/bash
+### socat-mcast-server
+
+  d=${0%/*}; f=${0##*/}; n=${f%.*}; e=${f##*.}
+  r=`readlink -f $d`
+  root=$r/..
+
+  ## This command receives multicast packets addressed to 224.1.0.1 and forks a child process for each. 
+  ## The child processes may each send one or more reply packets back to the particular sender. 
+  ## 192.168.10.2 means the address of the interface where multicasts should be received. 
+  ## Run this command on a number of hosts, and they will all respond in parallel.
+ #socat UDP4-RECVFROM:6666,ip-add-membership=224.1.0.1:192.168.10.2,fork EXEC:hostname
+  maddr=224.0.0.1
+  addr=192.168.86.27
+  port=5001
+  echo $0
+  echo socat UDP4-RECVFROM:${port},ip-add-membership=${maddr}:${addr},fork EXEC:hostname
+  socat UDP4-RECVFROM:${port},ip-add-membership=${maddr}:${addr},fork EXEC:hostname
+
+### *EOF*

@@ -1,0 +1,17 @@
+#!/bin/bash
+### socat-mcast-server
+
+  d=${0%/*}; f=${0##*/}; n=${f%.*}; e=${f##*.}
+  r=`readlink -f $d`
+  root=$r/..
+
+ #socat STDIO UDP4-DATAGRAM:224.1.0.1:6666,range=192.168.10.0/24
+  maddr=224.0.0.1
+  range="192.168.86.0/24"
+  port=5001
+  echo $0
+  echo socat STDIO UDP4-DATAGRAM:${maddr}:${port}
+ #socat STDIO UDP4-DATAGRAM:${maddr}:${port},range=${range}
+  socat STDIO UDP4-DATAGRAM:${maddr}:${port}
+
+### *EOF*
